@@ -1,3 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto+Mono&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  /* Colors */
+  --color-background: #fff;
+  --color-text: #000;
+  --color-text-button: #fff;
+  --color-text-logo: #81a6a6;
+  --color-background-button: #81a6a6;
+  --color-scanicon: #778fbe;
+  --color-folders: #c16056;
+  --color-background-files: #f1eeee;
+
+  /* Typography */
+  --font: 'Roboto';
+}
+
 body {
   margin: 0;
+  color: var(--color-background);
+  font-family: var(--font);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--font);
+  color: var(--color-text-logo);
 }
