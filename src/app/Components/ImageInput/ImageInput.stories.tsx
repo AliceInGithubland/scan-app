@@ -3,7 +3,7 @@ import ImageInput from './ImageInput';
 
 export default {
   component: ImageInput,
-  title: 'ImageInput',
+  title: './Components/ImageInput',
 };
 
 export const Default = () => <ImageInput />;

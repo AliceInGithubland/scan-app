@@ -35,3 +35,19 @@ h5 {
   font-family: var(--font);
   color: var(--color-text-logo);
 }
+
+a {
+  color: var(--color-text);
+}
+
+a:hover,
+a:active {
+  color: var(--color-background-button);
+}
+
+button {
+  color: var(--color-background-button);
+  background: var(--color-background-button);
+  border-radius: var(--border-radius);
+  padding: 0.5em 1em;
+}
