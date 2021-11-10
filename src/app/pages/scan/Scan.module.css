@@ -1,0 +1,15 @@
+.container {
+  display: grid;
+  gap: 1rem;
+  width: 80%;
+  margin: 0 auto;
+  justify-items: center;
+  align-content: center;
+  text-align: center;
+  height: 100vh;
+  padding: 4rem 2rem;
+}
+
+.scan {
+  width: 100%;
+}
