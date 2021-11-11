@@ -1,0 +1,37 @@
+.container {
+  display: grid;
+  gap: 1rem;
+  justify-items: center;
+  align-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.scan {
+  width: 210px;
+  height: 39px;
+  border: 8;
+  border-radius: 25%;
+  font-family: var(--font);
+  color: var(--color-text);
+}
+
+.header {
+  font-size: 80px;
+  text-transform: uppercase;
+  font-family: var(--font);
+  margin: 0%;
+}
+
+.underheader {
+  font-size: 15px;
+  text-transform: uppercase;
+  font-family: var(--font);
+}
+
+.scanIcon {
+  overflow: hidden;
+  object-fit: contain;
+  width: 50%;
+  height: 50%;
+}

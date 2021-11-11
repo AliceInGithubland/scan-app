@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
 *,
 *::before,
@@ -10,15 +10,13 @@
   /* Colors */
   --color-background: #fff;
   --color-text: #000;
-  --color-text-button: #fff;
-  --color-text-logo: #81a6a6;
+  --color-text-logo: #778fbe;
   --color-background-button: #81a6a6;
   --color-scanicon: #778fbe;
   --color-folders: #c16056;
-  --color-background-files: #f1eeee;
 
   /* Typography */
-  --font: 'Roboto';
+  --font: 'Roboto', sans-serif;
 }
 
 body {
@@ -34,4 +32,20 @@ h4,
 h5 {
   font-family: var(--font);
   color: var(--color-text-logo);
+}
+
+a {
+  color: var(--color-text);
+}
+
+a:hover,
+a:active {
+  color: var(--color-background-button);
+}
+
+button {
+  color: var(--color-text);
+  background: var(--color-background-button);
+  border-radius: var(--border-radius);
+  padding: 0.5em 1em;
 }
