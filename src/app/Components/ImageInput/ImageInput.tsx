@@ -7,7 +7,7 @@ type ImageInputProps = {
 };
 
 function ImageInput({ onUpload }: ImageInputProps) {
-  const [imageUrl, setImageUrl] = useState<string | null>(null);
+  const [imageURL, setImageURL] = useState<string | null>(null);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     if (!event.target.files || event.target.files.length === 0) {
@@ -15,20 +15,23 @@ function ImageInput({ onUpload }: ImageInputProps) {
     }
     const file = event.target.files[0];
     const newImageURL = URL.createObjectURL(file);
-    setImageUrl(newImageURL);
+    setImageURL(newImageURL);
     onUpload(newImageURL);
   };
 
   return (
-    <label className="scanIcon">
-      <label htmlFor="Start" className={styles.button}>
-        Import
+    <div className={styles.container}>
+      {imageURL && <img className={styles.img} src={imageURL} />}
+      <label className={styles.browseButton}>
+        Select Image
+        <input
+          type="file"
+          style={{ display: 'none' }}
+          accept="image/*"
+          onChange={handleChange}
+        />{' '}
       </label>
-      <ScanIcon />
-      <input id="Start" type="file" accept="image/*" onChange={handleChange} />
-
-      {imageUrl && <img className={styles.img} src={imageUrl} />}
-    </label>
+    </div>
   );
 }
 
