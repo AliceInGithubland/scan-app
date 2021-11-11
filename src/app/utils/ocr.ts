@@ -1,10 +1,10 @@
 import Tesseract from 'tesseract.js';
 
-type OnProgressProps = {
+export type RecognizeProgress = {
   progress: number;
   status: string;
 };
-type OnProgress = ({ progress, status }: OnProgressProps) => void;
+type OnProgress = ({ progress, status }: RecognizeProgress) => void;
 
 export async function recognizeText(
   url: string,

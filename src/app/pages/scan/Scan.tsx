@@ -1,36 +1,42 @@
 import React, { useState } from 'react';
-import Tesseract from 'tesseract.js';
 import ImageInput from '../../Components/ImageInput/ImageInput';
 import styles from './Scan.module.css';
+import { RecognizeProgress, recognizeText } from '../../utils/ocr';
+import Progress from '../../Components/Progress/Progress';
 
-function Scan() {
+function Scan(): JSX.Element {
   const [imageURL, setImageURL] = useState<string | null>(null);
   const [recognizedText, setRecognizedText] = useState<string | null>(null);
+  const [recognizeProgress, setRecognizeProgress] =
+    useState<RecognizeProgress | null>(null);
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.header}>Scan.</h1>
-      <h2 className={styles.underheader}>turn any document into pdf</h2>
       {recognizedText ? (
         <p>{recognizedText}</p>
       ) : (
         <ImageInput onUpload={setImageURL} />
       )}
-      <button
-        className={styles.scan}
-        disabled={imageURL === null}
-        onClick={() => {
-          if (imageURL) {
-            Tesseract.recognize(imageURL, 'eng', {
-              logger: (message) => console.log(message.progress),
-            }).then((result) => {
-              const text = result.data.text;
-              setRecognizedText(text);
-            });
-          }
-        }}
-      ></button>
-
+      {recognizeProgress ? (
+        <Progress
+          progress={recognizeProgress.progress * 100}
+          status={recognizeProgress.status}
+        />
+      ) : (
+        <button
+          className={styles.scan}
+          disabled={imageURL === null}
+          onClick={() => {
+            if (imageURL) {
+              recognizeText(imageURL, setRecognizeProgress).then(
+                setRecognizedText
+              );
+            }
+          }}
+        >
+          Scan
+        </button>
+      )}
       <a href="#">Skip</a>
     </div>
   );
